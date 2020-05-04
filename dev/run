@@ -1,0 +1,15 @@
+#!/bin/bash
+docker \
+run \
+-tid \
+-p80:80 \
+-p 443:443 \
+--name debian-nginx \
+-v debian-nginx-vol0:/etc/nginx/ \
+-v debian-nginx-vol1:/etc/certbot/ \
+-v debian-nginx-vol2:/etc/letsencrypt/ \
+-v debian-nginx-vol3:/var/www/html/ \
+-v debian-nginx-vol4:/var/lib/letsencrypt/ \
+-v debian-nginx-vol5:/var/log/letsencrypt/ \
+--restart always \
+debian-nginx
